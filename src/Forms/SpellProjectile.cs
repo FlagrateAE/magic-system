@@ -11,12 +11,19 @@ public class SpellProjectile : MonoBehaviour
     private Rigidbody _rb;
 
 
+    /// <summary>
+    /// Sets the Rigidbody's velocity to move the projectile.
+    /// </summary>
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _rb.linearVelocity = transform.forward * _speed;
     }
 
+    /// <summary>
+    /// When a SpellProjectile hits a SpellInteractable, apply the associated
+    /// SpellData to that SpellInteractable.
+    /// </summary>
     private void OnTriggerEnter(Collider target)
     {
         if (
@@ -28,6 +35,10 @@ public class SpellProjectile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets up the SpellProjectile to represent the given SpellData.
+    /// </summary>
+    /// <param name="data">The SpellData to set up the projectile to represent.</param>
     public void LoadSpellData(SpellData data)
     {
         SpellData = data;

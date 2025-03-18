@@ -29,6 +29,13 @@ public class PlayerSpellCast : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Casts the given <see cref="SpellData"/> based on its <see cref="SpellForm"/>.
+    /// </summary>
+    /// <param name="spellData">The spell data to cast.</param>
+    /// <remarks>
+    /// Currently only supports <see cref="SpellForm.Projectile"/>.
+    /// </remarks>
     private void Cast(SpellData spellData)
     {
         switch (spellData.Form)
@@ -48,7 +55,12 @@ public class PlayerSpellCast : MonoBehaviour
     }
 }
 
-
+/// <summary>
+/// Generates a sequence of colors for spell casting.
+/// </summary>
+/// <remarks>
+/// This class implements <see cref="IEnumerator{Color}"/> and can be used in a <c>foreach</c> loop.
+/// </remarks>
 public class ColorGenerator : IEnumerator<Color>
 {
     private readonly Color[] _colors = { Color.red, Color.green, Color.blue, Color.yellow, Color.cyan, Color.magenta };
